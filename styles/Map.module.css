@@ -1,0 +1,62 @@
+
+.map, .hiddenMap{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.map div, .hiddenMap  div{
+    margin: 0;
+    padding: 0;
+}
+.map h1, .hiddenMap  h1{
+    font-size: 1rem;
+    padding: 20px;  
+    top:-30px;  
+    color: var(--red);
+    font-weight: bolder;
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+    width: 100%;
+    position: absolute ;
+
+}
+.map h1 strong, .hiddenMap h1 strong{
+    color:var(--blue);
+}
+.map img, .hiddenMap  img{
+    width: 100%;
+    margin: 0;
+    border: 1px solid black;
+    padding: 0;
+}
+.map button, .hiddenMap  button{
+    background-color:var(--blue);
+    padding: 10px;
+    margin: 0;
+    border:none;
+    border: 1px solid black;
+    width: 100%;
+    margin-top: -30px;
+    font-family: var(--heading-font);
+    font-size: medium;
+    font-weight: bold;
+    color:white;
+    outline: none;
+}
+.hiddenMap img{
+    max-height: 80px;  
+}
+.hiddenMap h1{    
+    font-size: 2rem;
+}
+@media  screen and (min-width:700px) {
+    .map img{
+        width: 100%;
+        margin: 0;
+        max-height: 500px;
+        border: 1px solid black;
+        padding: 0;
+    }
+}

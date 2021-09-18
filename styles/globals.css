@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gluten&family=Kaushan+Script&family=Montserrat&family=Roboto&display=swap');
+html,
+:root{
+  --red:#FB3F3A;
+  --blue:#0189AB;
+  --dark-blue:#0189AB;
+  --heading-font: 'Roboto', sans-serif;
+  --text-font:'Montserrat', sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
