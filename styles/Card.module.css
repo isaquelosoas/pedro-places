@@ -1,0 +1,60 @@
+.card, .cardFavorite {
+    border-radius: 5px;
+    overflow: hidden;
+    width: var(--image-width);
+    margin: 15px; 
+    background-color: white;
+    padding: 10px;
+}
+.card img, .cardFavorite img{
+    max-height: var(--image-height);   
+    
+}
+.imgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.details{
+    display: flex;
+    flex-wrap: wrap;
+}
+.details span{
+    margin: 5px;
+}
+.card h2, .cardFavorite h2{
+    font-size: 16pt;
+    color: var(--blue);
+}
+.actions{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.btnMap{
+    font-size: 12pt;
+    font-family: var(--heading-font);
+    background-color: var(--dark-blue);
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    margin-right:10px;
+    color: white;
+}
+.btnFavorite {
+    align-items: stretch;
+    justify-content: stretch;  
+    border: none;
+    background-color: transparent;  
+}
+.cardFavorite{
+    border: 2px solid var(--red);
+    box-shadow: 0.2rem 0.2rem 0.2rem var(--dark-blue);
+}
+.cardFavorite .btnMap{
+    background-color: var(--red);
+}
+.cardFavorite h2{
+    color: var(--red);
+}

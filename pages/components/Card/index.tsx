@@ -1,30 +1,53 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
-import styles from './../../../styles/Map.module.css'
-import FavIcon from './../../../public/favorite.svg'
-import Image from 'next/image'
-const Card: NextPage = () => {
+import styles from './../../../styles/Card.module.css'
+import { Star, StarBorder } from '@material-ui/icons';
+import ImgButton from '../ImgButton';
+interface CardProps{
+    data:{
+        img:string,
+        title:string,
+        district:string,
+        city:string,
+        state:string,
+        postalCode:string    
+    }
+}
+const Card = ({data}:CardProps) => {
+    const [favorite, setFavorite] = useState<boolean>(false)
+    const toggleFavorite = () =>{
+        setFavorite(!favorite)
+    }
+    const { img, title, district, city, state, postalCode } = data
     return (
-        <article>
+        <article className={favorite?styles.cardFavorite:styles.card}>
             <div>
-                <img src="https://placeimg.com/1080/750"/>
+                <div className={styles.imgContainer}>
+                    {img?<img src={img}/>:<ImgButton />}
+                </div>
                 <h2>
-                        Rua Otacílio Fortes
+                    {title}
                 </h2>
-                <span>
-                        Parque Sul
-                </span>
-                <span>
-                    Teresina - PI
-                </span>
-                <span>
-                        64036-410
-                </span>
+                <div className={styles.details}>
+                    <span>
+                        {district}
+                    </span>
+                    <span>
+                        {city} - {state}
+                    </span>
+                    <span>
+                        {postalCode}
+                    </span>
+                </div>
             </div>
-            <div>
-                <button>Ver no Mapa</button>
-                <button>
-                    <Image src={FavIcon}/>
+            <div className={styles.actions}>
+                <button className={styles.btnMap}>Ver no Mapa</button>
+                <button className={styles.btnFavorite} onClick={toggleFavorite}>
+                    {
+                        favorite?
+                        <Star sx={{ color: '#FB3F3A', fontSize:40 }} />:
+                        <StarBorder sx={{ fontSize:40 }}/>
+                    }
                 </button>
             </div>
         </article>

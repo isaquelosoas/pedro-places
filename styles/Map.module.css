@@ -26,9 +26,9 @@
     color:var(--blue);
 }
 .map img, .hiddenMap  img{
+    transition: all 0.5s;
     width: 100%;
     margin: 0;
-    border: 1px solid black;
     padding: 0;
 }
 .map button, .hiddenMap  button{
@@ -36,7 +36,7 @@
     padding: 10px;
     margin: 0;
     border:none;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     width: 100%;
     margin-top: -30px;
     font-family: var(--heading-font);
@@ -46,7 +46,7 @@
     outline: none;
 }
 .hiddenMap img{
-    max-height: 80px;  
+    max-height: var(--header-heigth);  
 }
 .hiddenMap h1{    
     font-size: 2rem;

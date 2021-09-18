@@ -7,14 +7,18 @@ import Map from './components/Map'
 
 const Home: NextPage = () => {
   return (
-    <>
-      <header>
+    <div className={styles.container}>
+      
         <Map/>
-      </header>
-      <main>
-        <Card/>  
+      
+      <main className={styles.main}>
+        <Card data={{img:"https://placeimg.com/250/450",title:"Rua Doutor Manoel Ayres Neto",district:"Parque Sul",city:"Teresina",state:"PI",postalCode:"64036-410"}}/>  
+        <Card data={{img:"https://placeimg.com/500/450",title:"Quadra J Bloco 17",district:"Pedra Miúda",city:"Teresina",state:"PI",postalCode:"64036-410"}}/>  
+        <Card data={{img:"https://placeimg.com/1000/250",title:"Rua Barcarena",district:"Esplanada",city:"Teresina",state:"PI",postalCode:"64036-410"}}/>  
+        <Card data={{img:"",title:"Alberto Saddi",district:"Liberdade",city:"Rondonópolis",state:"MT",postalCode:"64036-410"}}/>  
+          
       </main>
-    </>
+    </div>
   )
 }
 

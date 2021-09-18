@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gluten&family=Kaushan+Script&family=Montserrat&family=Roboto&display=swap');
 html,
 :root{
+  --image-width:300px;
+  --image-height:196px;
+  --header-heigth:80px;
   --red:#FB3F3A;
   --blue:#0189AB;
   --dark-blue:#0189AB;
@@ -8,6 +11,7 @@ html,
   --text-font:'Montserrat', sans-serif;
 }
 body {
+  background-color: var(--dark-blue);
   padding: 0;
   margin: 0;
   font-family: 'Montserrat', sans-serif;

@@ -1,0 +1,7 @@
+.btnAddImage{
+    width: var(--image-width);
+    height: var(--image-height);
+}
+.btnAddImage h3{
+    color: grey;
+}
