@@ -1,17 +1,19 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import styles from './../../../styles/ModalForm.module.css'
 import {Close} from '@material-ui/icons';
 interface ModalFormProps{
   onClick:()=>void
   formData:{
-    handleSubmit:()=>void,
+    handleSubmit:(value:string)=>void,
     buttonTitle:string,
     label:string,
     placeholder:string
   }
 }
 const  ModalForm = ({onClick,formData}:ModalFormProps) => {  
+  const input = useRef(null)
   const { handleSubmit, buttonTitle, label, placeholder} = formData
+  console.log(input.current)
   return (
     <div className={styles.modalForm} onClick={(e)=>{e.preventDefault()}}>
       <div className={styles.closeButton}>
@@ -21,9 +23,9 @@ const  ModalForm = ({onClick,formData}:ModalFormProps) => {
       </div>
       <fieldset>
         <label htmlFor="image">{label}</label>
-        <input type="text" placeholder={placeholder}/>
+        <input ref={input} type="text" placeholder={placeholder}/>
       </fieldset>
-      <button className={styles.submitButton} onClick={handleSubmit}>{buttonTitle}</button>
+      <button className={styles.submitButton} onClick={()=>{handleSubmit(input.current?input.current:"")}}>{buttonTitle}</button>
     </div>
   )
 }

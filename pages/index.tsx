@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import type { AppProps  } from 'next/app'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -7,15 +8,30 @@ import Card from './components/Card'
 import Map from './components/Map'
 import Modal from './components/Modal'
 import CardButton from './components/CardButton'
+import {  GetServerSideProps } from 'next'
 interface FormData{
-  handleSubmit:()=>void,
+  handleSubmit:(value:any)=>void,
   buttonTitle:string,
   label:string,
   placeholder:string
 }
-const Home: NextPage = () => {
-  const [modal, setModal] = useState<boolean>(true)
-  const [formData,setFormData] = useState<FormData>({handleSubmit:()=>{},buttonTitle:"",label:"",placeholder:""})
+interface Data{
+    id:number,
+    img:string,
+    title:string,
+    district:string,
+    city:string,
+    state:string,
+    postalCode:string,
+    favorite:boolean
+}
+interface HomeProps{
+  data:Data[]
+}
+const Home = ({data}:HomeProps) => {
+  const [cardData,setCardData] = useState<Data[] | []>(data)
+  const [modal, setModal] = useState<boolean>(false)
+  const [formData,setFormData] = useState<FormData>({handleSubmit:(value)=>{},buttonTitle:"",label:"",placeholder:""})
   const toggleModal = () =>{
     setModal(!modal)
   }
@@ -24,22 +40,41 @@ const Home: NextPage = () => {
     setModal(true)
   }
   const addNewCard = () =>{
-    setFormData({handleSubmit:()=>{},buttonTitle:"Adicionar Endereço",label:"Insira o CEP do endereço",placeholder:"00000-000"})
+    setFormData({handleSubmit:postCard,buttonTitle:"Adicionar Endereço",label:"Insira o CEP do endereço",placeholder:"00000-000"})
     setModal(true)
   }
+  const postCard = (value:any) =>{
+    if(value){
+      console.log(value.value)
+    }
+  }
   return (
-    <div className={styles.container}>      
-        <Map/>      
+    <div className={styles.container}>
+        <Map/>
       <main className={styles.main}>
         {modal&&<Modal formData={formData} onClick={toggleModal}/>}
-        <Card handleAddImage={addImageModal} data={{img:"https://placeimg.com/250/450",title:"Rua Doutor Manoel Ayres Neto",district:"Parque Sul",city:"Teresina",state:"PI",postalCode:"64036-410"}}/>  
-        <Card handleAddImage={addImageModal} data={{img:"https://placeimg.com/500/450",title:"Quadra J Bloco 17",district:"Pedra Miúda",city:"Teresina",state:"PI",postalCode:"64036-410"}}/>  
-        <Card handleAddImage={addImageModal} data={{img:"https://placeimg.com/1000/250",title:"Rua Barcarena",district:"Esplanada",city:"Teresina",state:"PI",postalCode:"64036-410"}}/>  
-        <Card handleAddImage={addImageModal} data={{img:"",title:"Alberto Saddi",district:"Liberdade",city:"Rondonópolis",state:"MT",postalCode:"64036-410"}}/>        
+        {cardData.map(data=>{
+          const {img,title,district,state,city,id,postalCode,favorite} = data
+          return  <Card key={id} favorite={favorite} handleAddImage={addImageModal} data={{img,title,district,city,state,postalCode}}/>
+        })}
+        
       </main>
       {!modal&&<CardButton onClick={addNewCard}/>}
     </div>
   )
+}
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`http://localhost:3000/api/cards`)
+  const data = await res.json()
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: data, // will be passed to the page component as props
+  }
 }
 
 export default Home

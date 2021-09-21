@@ -4,6 +4,7 @@ import styles from './../../../styles/Card.module.css'
 import { Star, StarBorder } from '@material-ui/icons';
 import ImgButton from '../ImgButton';
 interface CardProps{
+    favorite:boolean
     data:{
         img:string,
         title:string,
@@ -14,14 +15,14 @@ interface CardProps{
     },
     handleAddImage:()=>void
 }
-const Card = ({data, handleAddImage}:CardProps) => {
-    const [favorite, setFavorite] = useState<boolean>(false)
+const Card = ({data,favorite, handleAddImage}:CardProps) => {
+    const [favoriteCard, setFavoriteCard] = useState<boolean>(favorite)
     const toggleFavorite = () =>{
-        setFavorite(!favorite)
+        setFavoriteCard(!favoriteCard)
     }
     const { img, title, district, city, state, postalCode } = data
     return (
-        <article className={favorite?styles.cardFavorite:styles.card}>
+        <article className={favoriteCard?styles.cardFavorite:styles.card}>
             <div>
                 <div className={styles.imgContainer}>
                     {img?<img src={img}/>:<ImgButton onClick={handleAddImage}/>}
@@ -45,7 +46,7 @@ const Card = ({data, handleAddImage}:CardProps) => {
                 <button className={styles.btnMap}>Ver no Mapa</button>
                 <button className={styles.btnFavorite} onClick={toggleFavorite}>
                     {
-                        favorite?
+                        favoriteCard?
                         <Star sx={{ color: '#FFBB33', fontSize:40 }} />:
                         <StarBorder sx={{ fontSize:40 }}/>
                     }

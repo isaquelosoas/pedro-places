@@ -33,6 +33,7 @@
 }
 .map button, .hiddenMap  button{
     background-color:var(--blue);
+    cursor: pointer;
     padding: 10px;
     margin: 0;
     border:none;
@@ -44,9 +45,13 @@
     font-weight: bold;
     color:white;
     outline: none;
+    transition: 0.5s;
 }
 .hiddenMap img{
     max-height: var(--header-heigth);  
+}
+.hiddenMap button:hover{
+    margin-top: 0px;
 }
 .hiddenMap h1{    
     font-size: 2rem;
