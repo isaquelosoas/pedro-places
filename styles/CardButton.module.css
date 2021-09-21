@@ -1,0 +1,18 @@
+.cardButton{
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   background-color: var(--red); 
+   border: 1px solid black;
+   border-radius: 70px;
+   width: 70px;
+   height: 70px;
+   transition: all 0.5s;
+   cursor: pointer;
+   z-index: 1;
+
+}
+.cardButton:hover{
+    transform: scale(1.1);
+    box-shadow: 1px 1px 1rem black;
+}

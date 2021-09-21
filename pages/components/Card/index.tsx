@@ -11,9 +11,10 @@ interface CardProps{
         city:string,
         state:string,
         postalCode:string    
-    }
+    },
+    handleAddImage:()=>void
 }
-const Card = ({data}:CardProps) => {
+const Card = ({data, handleAddImage}:CardProps) => {
     const [favorite, setFavorite] = useState<boolean>(false)
     const toggleFavorite = () =>{
         setFavorite(!favorite)
@@ -23,7 +24,7 @@ const Card = ({data}:CardProps) => {
         <article className={favorite?styles.cardFavorite:styles.card}>
             <div>
                 <div className={styles.imgContainer}>
-                    {img?<img src={img}/>:<ImgButton />}
+                    {img?<img src={img}/>:<ImgButton onClick={handleAddImage}/>}
                 </div>
                 <h2>
                     {title}
@@ -45,7 +46,7 @@ const Card = ({data}:CardProps) => {
                 <button className={styles.btnFavorite} onClick={toggleFavorite}>
                     {
                         favorite?
-                        <Star sx={{ color: '#FB3F3A', fontSize:40 }} />:
+                        <Star sx={{ color: '#FFBB33', fontSize:40 }} />:
                         <StarBorder sx={{ fontSize:40 }}/>
                     }
                 </button>

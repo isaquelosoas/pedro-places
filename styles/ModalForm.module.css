@@ -1,0 +1,49 @@
+.modalForm{
+    display: flex;
+    background-color: white;
+    flex:1;
+    width: 100%;
+    flex-direction: column;
+    border-radius: 1rem;
+    border: 2px solid var(--blue);
+    box-shadow: 0.2rem 0.2rem 0.5rem black;
+    position: fixed;
+    z-index: 100;
+
+}
+.closeButton{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.closeButton button{
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+}
+.modalForm fieldset{
+    margin: 30px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+.modalForm fieldset input{
+    margin-top: 5px;
+    padding: 10px;
+}
+.submitButton{
+    margin: 15px 30px;
+    padding: 10px;
+    background-color: var(--dark-blue);
+    border: 1px solid black;
+    font-size: 12pt;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+}
+@media screen  and (min-width:600px){
+    .modalForm{
+        max-width: 600px;
+    }
+    
+}
