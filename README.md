@@ -12,8 +12,7 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ```diff
-+ this will be highlighted in green
-- this will be highlighted in red
+ ##!important 
 ```
 
 The app is an easy to use single-page application:
