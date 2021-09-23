@@ -49,7 +49,7 @@ const Home = ({data}:HomeProps) => {
     console.log(process.env.API_KEY, process.env,BASE_URL)
 
     const loader = new Loader({
-      apiKey: process.env.API_KEY || "AIzaSyCj0Y95gv2GvRQlcmUbcLPdcStPKQ52v30",
+      apiKey: process.env.API_KEY || "",
       version: "weekly",
     });
     loader.load().then(() => {
