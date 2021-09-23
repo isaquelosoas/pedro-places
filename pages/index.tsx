@@ -42,6 +42,7 @@ const Home = ({data}:HomeProps) => {
   const [modal, setModal] = useState<boolean>(false)
   const [formData,setFormData] = useState<FormData>({buttonTitle:"",label:"",placeholder:""})
   const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
+  // Google Maps Platform Variables
   let map: google.maps.Map;
   let geocoder: google.maps.Geocoder
   useEffect(()=>{

@@ -20,7 +20,7 @@ const  ModalForm = ({handleSubmit,onClick,formData}:ModalFormProps) => {
   const { buttonTitle,mask, label, placeholder, id} = formData
   const submit = async ()=>{
     setLoading(true)
-    handleSubmit&&await handleSubmit(input.current?input.current:"",id?id:undefined)
+    handleSubmit&&await handleSubmit(input.current?input.current:"",id?id:undefined) //Post Card or Add Image function on index
     setLoading(false)
   }
   return (
