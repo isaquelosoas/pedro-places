@@ -30,16 +30,21 @@
 .modalForm fieldset input{
     margin-top: 5px;
     padding: 10px;
+    font-size: 12pt;
 }
 .submitButton{
     margin: 15px 30px;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 50px;
     background-color: var(--dark-blue);
-    border: 1px solid black;
-    font-size: 12pt;
+    font-size: 14pt;
     font-weight: 700;
     color: white;
     cursor: pointer;
+    transition: all 0.2s;
+}
+.submitButton:hover{
+    transform: scale(1.02);
 }
 @media screen  and (min-width:600px){
     .modalForm{

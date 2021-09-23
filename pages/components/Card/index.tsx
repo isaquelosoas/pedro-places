@@ -26,7 +26,7 @@ interface CardProps{
 const Card = ({data,favorite, handleAddImage, zoomMap}:CardProps) => {
     const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
     const [favoriteCard, setFavoriteCard] = useState<boolean>(favorite)
-    const { id, img, title, district, city, state, postalCode, location } = data
+    const { id=1, img, title, district, city, state, postalCode, location } = data
     const toggleFavorite = async () =>{
         setFavoriteCard(!favoriteCard)
         const request = await axios.put(`${BASE_URL}/api/updateCard`,{id,attr:"favorite",value:!favoriteCard})
