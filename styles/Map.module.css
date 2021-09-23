@@ -11,21 +11,18 @@
     padding: 0;
 }
 .map h1, .hiddenMap  h1{
-    font-size: 1rem;
-    padding: 20px;  
-    top:-30px;  
     color: var(--red);
     font-weight: bolder;
     font-family: 'Kaushan Script', cursive;
-    text-align: center;
-    width: 100%;
-    position: absolute ;
+    
+    
 
 }
 .map h1 strong, .hiddenMap h1 strong{
     color:var(--blue);
+    position: fixed;
 }
-.map img, .hiddenMap  img{
+.img{
     transition: all 0.5s;
     width: 100%;
     margin: 0;
@@ -35,11 +32,12 @@
     background-color:var(--blue);
     cursor: pointer;
     padding: 10px;
+    padding-top: 20px;
     margin: 0;
     border:none;
     border-bottom: 1px solid black;
     width: 100%;
-    margin-top: -30px;
+    margin-top: -10px;
     font-family: var(--heading-font);
     font-size: medium;
     font-weight: bold;
@@ -47,21 +45,30 @@
     outline: none;
     transition: 0.5s;
 }
-.hiddenMap img{
-    max-height: var(--header-heigth);  
+.img{
+    height: var(--header-heigth);  
 }
 .hiddenMap button:hover{
-    margin-top: 0px;
+    margin-top: -5px;
 }
-.hiddenMap h1{    
+.hiddenMap h1{   
+    display: none;
+    border: 1px solid black; 
     font-size: 2rem;
 }
+.fullImg{
+    width: 100%;
+    margin: 0;
+    height: 500px;
+    padding: 0;
+    transition: all 0.5s;
+}
 @media  screen and (min-width:700px) {
-    .map img{
+    .fullImg{
         width: 100%;
         margin: 0;
-        max-height: 500px;
-        border: 1px solid black;
+        height: 500px;
         padding: 0;
+        transition: all 0.5s;
     }
 }

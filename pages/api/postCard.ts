@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Cards from './cards.json'
+import fs from 'fs'
 
 type Data = {
   data:{
@@ -13,11 +14,17 @@ type Data = {
     favorite:boolean
   }[]
 }
-
+let lastId = 5
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
-    console.log(req)
+  const jsonData = req.body
+  console.log(jsonData)
+  jsonData.id = lastId
+  Cards.data.push(jsonData)
+
+  fs.writeFileSync('cards.json',JSON.stringify(Cards))
+  lastId++
   res.status(200).json(Cards)
 }

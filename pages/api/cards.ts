@@ -11,7 +11,7 @@ type Data = {
     city:string,
     state:string,
     postalCode:string,
-    favorite:boolean
+    favorite:boolean,
   }[]
 }
 
