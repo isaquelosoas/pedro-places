@@ -4,8 +4,8 @@ import styles from './../../../styles/Modal.module.css'
 import ModalForm from './../ModalForm'
 interface ModalProps{
     onClick:()=>void,
+    handleSubmit:(value:any, id?:number)=>void,
     formData:{
-        handleSubmit:()=>void,
         buttonTitle:string,
         label:string,
         placeholder:string

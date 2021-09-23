@@ -5,19 +5,19 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import InputMask from "react-input-mask";
 interface ModalFormProps{
   onClick:()=>void
+  handleSubmit?:(value:string, id?:number)=>void,
   formData:{
     mask?:string,
     id?:number,
-    handleSubmit?:(value:string, id?:number)=>void|undefined,
     buttonTitle:string,
     label:string,
     placeholder:string
   }
 }
-const  ModalForm = ({onClick,formData}:ModalFormProps) => {  
+const  ModalForm = ({handleSubmit,onClick,formData}:ModalFormProps) => {  
   const [loading, setLoading] = useState<boolean>(false)
   const input = useRef(null)
-  const { handleSubmit, buttonTitle,mask, label, placeholder, id} = formData
+  const { buttonTitle,mask, label, placeholder, id} = formData
   const submit = async ()=>{
     setLoading(true)
     handleSubmit&&await handleSubmit(input.current?input.current:"",id?id:undefined)

@@ -196,7 +196,7 @@ const Home = ({data}:HomeProps) => {
             </div>
           
         
-        {modal&&<Modal formData={formData} onClick={toggleModal}/>}
+        {modal&&<Modal handleSubmit={formData.handleSubmit} formData={formData} onClick={toggleModal}/>}
         {cardData.map(data=>{
           const {img,title,district,state,city,id,postalCode,favorite, location} = data 
           console.log(postalCode)      
