@@ -11,7 +11,7 @@ import Collapse from '@material-ui/core/Collapse';
 import { Loader } from "@googlemaps/js-api-loader"
 interface FormData{
   mask?:string
-  id?:number
+  id:number
   handleSubmit:(value:any, id?:number)=>void,
   buttonTitle:string,
   label:string,
@@ -40,7 +40,7 @@ const Home = ({data}:HomeProps) => {
   const [currentLocation,setCurrentLocation] =  useState<google.maps.LatLng|google.maps.LatLngLiteral|null>(null)
   const [alert, setAlert] = useState<{status:boolean,msg:string}>({status:false,msg:""})
   const [modal, setModal] = useState<boolean>(false)
-  const [formData,setFormData] = useState<FormData>({handleSubmit:()=>{}, buttonTitle:"",label:"",placeholder:""})
+  const [formData,setFormData] = useState<FormData>({handleSubmit:()=>{}, buttonTitle:"buttonTitle",label:"label",placeholder:"placeholder",id:1})
   const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
   // Google Maps Platform Variables
   let map: google.maps.Map;
@@ -49,7 +49,7 @@ const Home = ({data}:HomeProps) => {
     console.log(process.env.API_KEY, process.env,BASE_URL)
 
     const loader = new Loader({
-      apiKey: process.env.API_KEY || "",
+      apiKey: process.env.API_KEY || "AIzaSyCj0Y95gv2GvRQlcmUbcLPdcStPKQ52v30",
       version: "weekly",
     });
     loader.load().then(() => {
@@ -85,7 +85,7 @@ const Home = ({data}:HomeProps) => {
     setModal(true)
   }
   const addNewCard = () =>{
-    setFormData({handleSubmit:postCard,mask:"99999-999",buttonTitle:"Adicionar Endereço",label:"Insira o CEP do endereço",placeholder:"00000-000"})
+    setFormData({id:0,handleSubmit:postCard,mask:"99999-999",buttonTitle:"Adicionar Endereço",label:"Insira o CEP do endereço",placeholder:"00000-000"})
     setModal(true)
   }
   const addImage = async (value:any ,id?:number) =>{

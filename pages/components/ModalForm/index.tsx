@@ -17,7 +17,7 @@ interface ModalFormProps{
 const  ModalForm = ({handleSubmit,onClick,formData}:ModalFormProps) => {  
   const [loading, setLoading] = useState<boolean>(false)
   const input = useRef(null)
-  const {buttonTitle="Enviar", mask, label, placeholder, id=1} = formData
+  const { mask,buttonTitle="Enviar", label, placeholder, id=1} = formData
   const submit = async ()=>{
     console.log("entrei")
     setLoading(true)
