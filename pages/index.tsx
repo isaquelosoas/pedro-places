@@ -47,7 +47,7 @@ const Home = ({data}:HomeProps) => {
   useEffect(()=>{
     console.log("entrei")
     const loader = new Loader({
-      apiKey: "AIzaSyCj0Y95gv2GvRQlcmUbcLPdcStPKQ52v30",
+      apiKey: process.env.API_KEY || "",
       version: "weekly",
     });
     loader.load().then(() => {
