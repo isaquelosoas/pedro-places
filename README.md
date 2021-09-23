@@ -1,5 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+This webapp was designed to save addresses cards by passing brazilian postal code and to display them in the map. For this application were used [ViaCEP API](https://viacep.com.br/) for searching postal code and [Google Maps Platform](https://cloud.google.com/maps-platform) for map display and geocoding
 ## Getting Started
 
 First, run the development server:
