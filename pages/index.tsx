@@ -12,7 +12,7 @@ import { Loader } from "@googlemaps/js-api-loader"
 interface FormData{
   mask?:string
   id?:number
-  handleSubmit:(value:any, id?:number)=>void,
+  handleSubmit?:(value:any, id?:number)=>void,
   buttonTitle:string,
   label:string,
   placeholder:string
@@ -40,12 +40,13 @@ const Home = ({data}:HomeProps) => {
   const [currentLocation,setCurrentLocation] =  useState<google.maps.LatLng|google.maps.LatLngLiteral|null>(null)
   const [alert, setAlert] = useState<{status:boolean,msg:string}>({status:false,msg:""})
   const [modal, setModal] = useState<boolean>(false)
-  const [formData,setFormData] = useState<FormData>({handleSubmit:()=>{},buttonTitle:"",label:"",placeholder:""})
+  const [formData,setFormData] = useState<FormData>({buttonTitle:"",label:"",placeholder:""})
   const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
   let map: google.maps.Map;
   let geocoder: google.maps.Geocoder
   useEffect(()=>{
-    console.log("entrei")
+    console.log(process.env.API_KEY, process.env,BASE_URL)
+
     const loader = new Loader({
       apiKey: process.env.API_KEY || "",
       version: "weekly",

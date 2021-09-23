@@ -8,7 +8,7 @@ interface ModalFormProps{
   formData:{
     mask?:string,
     id?:number,
-    handleSubmit:(value:string, id?:number)=>void,
+    handleSubmit?:(value:string, id?:number)=>void|undefined,
     buttonTitle:string,
     label:string,
     placeholder:string
@@ -20,7 +20,7 @@ const  ModalForm = ({onClick,formData}:ModalFormProps) => {
   const { handleSubmit, buttonTitle,mask, label, placeholder, id} = formData
   const submit = async ()=>{
     setLoading(true)
-    await handleSubmit(input.current?input.current:"",id?id:undefined)
+    handleSubmit&&await handleSubmit(input.current?input.current:"",id?id:undefined)
     setLoading(false)
   }
   return (

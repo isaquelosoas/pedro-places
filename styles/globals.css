@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Gluten&family=Kaushan+Script&family=Montserrat&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 html,
 :root{
   --image-width:300px;
@@ -6,8 +7,8 @@ html,
   --header-heigth:80px;
   --red:#FFBB33;
   --blue:#0189AB;
-  --dark-blue:#0189AB;
-  --heading-font: 'Roboto', sans-serif;
+  --dark-blue:#014A97;
+  --heading-font: 'Poppins', sans-serif;
   --text-font:'Montserrat', sans-serif;
 }
 body {
