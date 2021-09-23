@@ -1,7 +1,7 @@
 This webapp was developed to save address cards passing the Brazilian postal code and display them on the map. For this application we used [ViaCEP API](https://viacep.com.br/) for zip code search and [Google Maps Platform](https://cloud.google.com/maps-platform) for map display and geocoding  
 ## Getting Started
 
-First, run the development server:
+First, clone this repository and then run the development server:
 
 ```bash
 npm run dev
