@@ -46,19 +46,18 @@ const Home = ({data}:HomeProps) => {
   let map: google.maps.Map;
   let geocoder: google.maps.Geocoder
   useEffect(()=>{
-    console.log(process.env.API_KEY, process.env,BASE_URL)
-
+    // Load the map - see more: https://developers.google.com/maps/documentation/javascript/overview#js_api_loader_package
     const loader = new Loader({
-      apiKey: process.env.API_KEY || "AIzaSyCj0Y95gv2GvRQlcmUbcLPdcStPKQ52v30",
+      apiKey: process.env.API_KEY || "",
       version: "weekly",
     });
     loader.load().then(() => {
-      map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+      map = new google.maps.Map(document.getElementById("map") as HTMLElement, { //map html element is rendered on Map component
         center: currentLocation?currentLocation:{lat:-5.2021871,lng:-42.7348691},
         zoom: currentLocation?14:10,
       }); 
       const h1 = document.getElementById("title")
-      map.controls[google.maps.ControlPosition.TOP_CENTER].push(h1);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(h1);// adding PedroPlaces title on maps TOP_CENTER 
       data.map(d=>{
         const location = d.location
         new google.maps.Marker({
@@ -69,6 +68,7 @@ const Home = ({data}:HomeProps) => {
       })
     });
   },[])
+  //This function adds a marker on the map by location and put id as label
   function addMarker(location:google.maps.LatLng, id?:number){  
     new google.maps.Marker({
       position: location,
@@ -77,6 +77,7 @@ const Home = ({data}:HomeProps) => {
     }); 
     
   }
+  //Display/Hide Modal
   const toggleModal = () =>{
     setModal(!modal)
   }
@@ -88,6 +89,7 @@ const Home = ({data}:HomeProps) => {
     setFormData({id:0,handleSubmit:postCard,mask:"99999-999",buttonTitle:"Adicionar Endereço",label:"Insira o CEP do endereço",placeholder:"00000-000"})
     setModal(true)
   }
+  // Function change image by its id (value is the current attribute of useRef)
   const addImage = async (value:any ,id?:number) =>{
     console.log(value)
     if(value){
@@ -98,6 +100,7 @@ const Home = ({data}:HomeProps) => {
       setModal(false)
     }
   }
+  //This function center and zoom map to s specifif location
   const zoomMap = async (location:google.maps.LatLng|google.maps.LatLngLiteral) =>{
     map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
       center: currentLocation?currentLocation:{lat:-5.2021871,lng:-42.7348691},
@@ -119,7 +122,8 @@ const Home = ({data}:HomeProps) => {
     setCurrentLocation(location)
     setHidden(true)
     
-  }
+  } 
+  // Function to post a new card
   const postCard = async (value:any) =>{
     if(value){
       const jsonData = await getAddress(value.value)
@@ -138,6 +142,7 @@ const Home = ({data}:HomeProps) => {
       }
     }
   }
+  // Function triggered by postCard modal and get an address by CEP and its location using Geocoder API 
   const getAddress = async (value:string) => {
     try{
       const res = await axios.get(`https://viacep.com.br/ws/${value}/json`);
@@ -210,7 +215,7 @@ const Home = ({data}:HomeProps) => {
   )
 }
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
+  const BASE_URL = process.env.BASE_URL || 'http://localhost:3000' // NEXT Api used to get cards. 
   const res = await fetch(`${BASE_URL}/api/cards`)
   const data = await res.json()
   if (!data) {

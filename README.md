@@ -1,8 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+This webapp was developed to save address cards passing the Brazilian postal code and display them on the map. For this application we used [ViaCEP API](https://viacep.com.br/) for zip code search and [Google Maps Platform](https://cloud.google.com/maps-platform) for map display and geocoding  
 ## Getting Started
 
-First, run the development server:
+First, clone this repository and then run the development server:
 
 ```bash
 npm run dev
@@ -12,23 +11,31 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+##Google Maps Integration
+It's important to provide a Google Maps API Key. To do this, create a .env file and add API_KEY={YOUR API KEY} 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The app is an easy to use single-page application:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+##Adding a new address
 
-## Learn More
+To add a new address click on right-bottom button '+'.
+It will display a modal with the cep input. The CEP mask is 00000-000, please make sure to insert a valid and well formatted CEP then click "Adicionar Endereço"
 
-To learn more about Next.js, take a look at the following resources:
+##Adding image to address
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To add a new image to address, the address must not have another image. If it's the case, click "Add Photo" button.
+It will display a modal with URL input. Copy and paste the image URL then click "Adicionar Foto"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##Adding address to favorite
 
-## Deploy on Vercel
+To add an address to favorite, click the star button. It must change card color to yellow and center the map on selected place
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+##Centering map
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+To center the map on a specific address click "Ver no Mapa" button 
+
+## Contribute
+
+You can check out [pedro-places repository](https://github.com/isaquelosoas/pedro-places) - your feedback and contributions are welcome!
+
+
